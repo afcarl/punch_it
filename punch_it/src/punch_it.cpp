@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 	std::vector<std::string> file_names;
 	bool mod_flags[4] = { false, false, false , false};
 	// Check for modifying flags
-	for (int i = 0; i < argc; i++) {
+	for (int i = 1; i < argc; i++) {
 		if (strcmp(argv[i], "-t") == 0) {
 			mod_flags[0] = true;
 			mod_flags[1] = true;
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 	std::map<std::string, std::vector<std::string> > results_map;
 	std::map<std::string, std::vector<std::string> >::iterator results_map_it;
 	bool data_region = false, result_type_flag = false, skip_entry = true;
-	for (int i = 1; i < file_names.size(); i++) {
+	for (int i = 0; i < file_names.size(); i++) {
 		working_file.open(file_names[i], std::ios_base::in);
 		if (working_file.is_open()) {
 			std::cout << "Reading file: " << file_names[i] << std::endl;
